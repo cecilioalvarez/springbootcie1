@@ -1,13 +1,26 @@
 package es.curso.springboot1.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.curso.springboot1.negocio.Socio;
 
 @Controller
 public class SocioController {
+
+    List<Socio> socios = new ArrayList<Socio>();
+    public SocioController(){
+
+        socios.add (new Socio("pepe","perez",10));
+        socios.add (new Socio("maria","gomez",20));
+        socios.add (new Socio("juan","martin",30));
+    }
+
     @GetMapping("/socios")
     public String socios() {
         return "plantillasocio";
@@ -17,9 +30,8 @@ public class SocioController {
     public String verSocio(@RequestParam String nombre, Model modelo) {
 
         System.out.println(nombre);
-        modelo.addAttribute("nombre",nombre);
+        modelo.addAttribute("nombre", nombre);
         return "plantillaversocio";
     }
-    
-     
+
 }
