@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+//Model
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,9 @@ public class SocioController {
     }
 
     @GetMapping("/listasocios")
-    public String listasocios() {
+
+    public String listasocios(Model modelo) {
+        modelo.addAttribute("listasocios", socios);
         return "listasocios";
     }
 
