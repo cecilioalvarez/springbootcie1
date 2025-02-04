@@ -24,7 +24,12 @@ public class SocioController {
         socios.add(new Socio("pepe4", "perez", 10));
         
     }
-    
+    @GetMapping("/listasocios")
+    public String listasocios(Model modelo) {
+        modelo.addAttribute("listasocios", socios);
+        System.out.println(socios.size());
+        return "listasocios";
+    }    
 
 
     @GetMapping("/socios")
