@@ -27,7 +27,7 @@ public class SocioController {
 
     @GetMapping("/listasocios")
     public String listasocios(Model modelo) {
-        modelo.addAttribute("lista", socios);
+        modelo.addAttribute("listasocios", socios);
         return "listasocios";
     }
 
