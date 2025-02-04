@@ -16,10 +16,15 @@ public class SocioController {
     List<Socio> socios = new ArrayList<Socio>();
 
     public SocioController() {
-        socio.add(new Socio("pepe", "perez", 10));
-        socio.add(new Socio("pepe2", "pereza", 11));
-        socio.add(new Socio("pepe3", "perezb", 9));
-        socio.add(new Socio("pepe4", "perezc", 18));
+        socios.add(new Socio("pepe", "perez", 10));
+        socios.add(new Socio("pepe2", "pereza", 11));
+        socios.add(new Socio("pepe3", "perezb", 9));
+        socios.add(new Socio("pepe4", "perezc", 18));
+    }
+
+    @GetMapping("/listasocios")
+    public String listasocios() {
+        return "listasocios";
     }
 
     @GetMapping("/socios")
