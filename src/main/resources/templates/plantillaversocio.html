@@ -1,6 +1,11 @@
 <html>
-    <body>
 
-        <p>voy a ver los datos del socio<span th:text="${nombre}"></span></p>
-    </body>
+<body>
+    <form action="/listasocios">
+        <p>Voy a ver los datos del socio: <span th:text="${nombre}"> </span>
+        </p>Datos:<input type="text" name="Datos" />
+        <input type="submit" value="Continuar" />
+    </form>
+</body>
+
 </html>

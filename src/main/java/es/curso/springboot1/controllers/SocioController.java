@@ -18,10 +18,10 @@ public class SocioController {
 
     public SocioController() {
 
-        socios.add(new Socio("pepe", "perez", 10));
-        socios.add(new Socio("pepe2", "perez", 10));
-        socios.add(new Socio("pepe3", "perez", 10));
-        socios.add(new Socio("pepe4", "perez", 10));
+        socios.add(new Socio("pepe", "Perez", 30));
+        socios.add(new Socio("Juan", "Rodriguez", 25));
+        socios.add(new Socio("José", "Ruiz", 20));
+        socios.add(new Socio("Carlota", "Castañeda", 15));
         
     }
     @GetMapping("/listasocios")
