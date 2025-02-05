@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.curso.springboot1.negocio.Socio;
 
-
 @Controller
 public class SocioController {
 
-    List<Socio> socios= new ArrayList<Socio>();
+    List<Socio> socios = new ArrayList<Socio>();
 
     public SocioController() {
 
@@ -25,7 +24,7 @@ public class SocioController {
         socios.add(new Socio("Juan", "Rodriguez", 25));
         socios.add(new Socio("José", "Ruiz", 20));
         socios.add(new Socio("Carlota", "Castañeda", 15));
-        
+
     }
 
     @GetMapping("/listasocios")
@@ -33,15 +32,26 @@ public class SocioController {
         modelo.addAttribute("listasocios", socios);
         System.out.println(socios.size());
         return "listasocios";
-    }    
-    @GetMapping(value="/listasocios" , params="orden")
-    public String listasocios(Model modelo,@RequestParam String orden) {
-        List<Socio>  listaOrdenada = new ArrayList<>();
-       
-        modelo.addAttribute("listasocios", socios);
+    }
+
+    @GetMapping(value = "/listasocios", params = "orden")
+    public String listasocios(Model modelo, @RequestParam String orden) {
+        List<Socio> listaOrdenada = new ArrayList<>();
+        if (orden.equals("nombre")) {
+
+            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getNombre)).toList();
+
+        } else if (orden.equals("apellidos")) {
+            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getApellidos)).toList();
+
+        } else {
+
+            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getEdad)).toList();
+        }
+        modelo.addAttribute("listasocios", listaOrdenada);
         System.out.println(orden);
         return "listasocios";
-    }    
+    }
 
     @GetMapping("/socios")
     public String socios() {
@@ -57,9 +67,10 @@ public class SocioController {
     public String verSocio(@RequestParam String nombre, Model modelo) {
 
         System.out.println(nombre);
-        modelo.addAttribute("nombre",nombre);
+        modelo.addAttribute("nombre", nombre);
         return "plantillaversocio";
-    } 
+    }
+
     @PostMapping("/insertarsocio")
     public String insertarsocio(@ModelAttribute Socio socio) {
         socios.add(socio);

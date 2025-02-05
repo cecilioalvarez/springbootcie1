@@ -17,11 +17,9 @@
     <div class="container">
         <table class="table table-hover">
             <thead class="table-warning">
-                <tr>
-                    <th><a href="#" class="link-secondary"></a>Nombre</th>
-                    <th><a href="#" class="link-secondary"></a>Apellidos</th>
-                    <th><a href="#" class="link-secondary"></a>Edad</th>
-                </tr>
+                <th><a href="?orden=nombre">Nombre</a></th>
+                <th><a href="?orden=apellido" >Apellidos</a></th>
+                <th><a href="?orden=edad">Edad</a></th>
             </thead>
             <tbody class="table-light">
                 <tr th:each="socio: ${listasocios}">
