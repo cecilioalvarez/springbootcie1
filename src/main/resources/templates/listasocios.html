@@ -5,24 +5,32 @@
 
     </head>
         <body>
-            <!--
-            <div th:each="socio: ${listasocios}">
-                <p th:text="${socio.nombre} + ${socio.apellidos} + ${socio.edad}">
-                </p>
-
-             </div>-->
-             <h1 class="text" > TABLA DE CLIENTES</h1>
-             <h2>Socios actuales</h2>
-             <table class="table">
+            <div class="container"> 
+            <h1 style="text-align: center;" class="text">TABLA DE SOCIOS</h1>
+            </div>
+            <br>
+             <h2 style="text-align: center;">Socios actuales</h2>
+             <div class="container"> 
+             <table class="table table-hover">
+                <thead class="table-warning">
+                    <th><a href="?orden=nombre">Nombre</a></th>
+                    <th><a href="?orden=apellidos">Apellido</a></th>
+                    <th><a href="?orden=edad">Edad</a></th>
+                </thead>
+                <tr>
+                </tr>
                 <tr style="border: 1px;" th:each="socio:${listasocios}">
                     <td th:text="${socio.nombre}"></td>
                     <td th:text="${socio.apellidos}"></td>
                     <td th:text="${socio.edad}"></td>
-
                 </tr>
              </table>
+            </div>
+            <div class="container" style="align-items: center;"> 
+            <a href="formulariosocio" class="btn btn-primary">Ir al formulario</a>
+            </div>
         </body>
-
+  </div>
 
 
 
