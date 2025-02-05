@@ -1,6 +1,7 @@
 package es.curso.springboot1.controllers;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,14 @@ public class SocioController {
         System.out.println(socios.size());
         return "listasocios";
     }    
+    @GetMapping(value="/listasocios" , params="orden")
+    public String listasocios(Model modelo,@RequestParam String orden) {
+        List<Socio>  listaOrdenada = new ArrayList<>();
+       
+        modelo.addAttribute("listasocios", socios);
+        System.out.println(orden);
+        return "listasocios";
+    }    
 
     @GetMapping("/socios")
     public String socios() {
@@ -52,11 +61,8 @@ public class SocioController {
         return "plantillaversocio";
     } 
     @PostMapping("/insertarsocio")
-    public String insertarsocio(@ModelAttribute Socio socio, Model modelo) {
-        //añadir un socio
+    public String insertarsocio(@ModelAttribute Socio socio) {
         socios.add(socio);
-        //A el modelo, le paso la nueva lista 
-        modelo.addAttribute("listasocios", socios);
-        return "listasocios";
+        return "redirect:listasocios";
     }
 }
