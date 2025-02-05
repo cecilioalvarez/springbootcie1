@@ -24,6 +24,7 @@ public class SocioController {
         socios.add(new Socio("Carlota", "Castañeda", 15));
         
     }
+    
     @GetMapping("/listasocios")
     public String listasocios(Model modelo) {
         modelo.addAttribute("listasocios", socios);
@@ -31,10 +32,14 @@ public class SocioController {
         return "listasocios";
     }    
 
-
     @GetMapping("/socios")
     public String socios() {
         return "plantillasocio";
+    }
+
+    @GetMapping("/formulariosocio")
+    public String formulariosocio() {
+        return "formulariosocio";
     }
 
     @GetMapping("/versocio")
@@ -43,7 +48,5 @@ public class SocioController {
         System.out.println(nombre);
         modelo.addAttribute("nombre",nombre);
         return "plantillaversocio";
-    }
-    
-     
+    } 
 }
