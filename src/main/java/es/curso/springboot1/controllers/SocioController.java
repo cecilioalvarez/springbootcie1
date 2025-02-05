@@ -51,7 +51,7 @@ public class SocioController {
             listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getApellidos)).toList();
 
         } else {
-            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getApellidos)).toList();
+            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getEdad)).toList();
         }
         modelo.addAttribute("listasocios", listaOrdenada);
         System.out.println(orden);
