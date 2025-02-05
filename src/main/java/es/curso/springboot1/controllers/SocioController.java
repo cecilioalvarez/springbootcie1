@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 //Model
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.curso.springboot1.negocio.Socio;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class SocioController {
@@ -26,6 +29,21 @@ public class SocioController {
     @GetMapping("/listasocios")
 
     public String listasocios(Model modelo) {
+        modelo.addAttribute("listasocios", socios);
+        return "listasocios";
+    }
+
+    @GetMapping("/formulariosocio")
+
+    public String formulariosocio() {
+
+        return "formulariosocio";
+    }
+
+    @PostMapping("/insertarsocio")
+    public String insertarSocio(@ModelAttribute Socio socio, Model modelo) {
+        // TODO: process POST request
+        socios.add(socio);
         modelo.addAttribute("listasocios", socios);
         return "listasocios";
     }
