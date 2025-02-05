@@ -25,6 +25,13 @@ public class SocioController {
         
     }
   
+    @GetMapping("/formulariosocio")
+    public String formulariosocio() {
+       
+        return "formulariosocio";
+    }
+
+
     @GetMapping("/listasocios")
     public String listasocios(Model modelo) {
         modelo.addAttribute("listasocios", socios);
