@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.curso.springboot1.negocio.Socio;
-import jakarta.annotation.PostConstruct;
 
 
 @Controller
