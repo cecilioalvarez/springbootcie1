@@ -11,25 +11,32 @@
 <title>Listado de socios</title>
 
 <body>
-    <h1 style="color:orange; text-align: center">CIE</h1>
-    <p style="text-align: center; font-weight: bold;"> Estos son los asociados actuales: </p>
+    <h1 class="text-danger text-center font-weight-bold">CIE</h1>
+    <p class="text-center"> Estos son los asociados actuales: </p>
 
-    <table class="table" style="margin: auto; border: 1px solid black">
-        <tr>
-            <th style="color: darkblue; background-color: bisque;">Nombre</th>
-            <th style="color: darkblue; background-color: bisque">Apellido</th>
-            <th style="color: darkblue; background-color: bisque">Edad</th>
-        </tr>
-        <tr th:each="socio: ${listasocios}">
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="table-warning">
+                <tr>
+                    <th class="text-primary text-center"> <a href="?orden=nombre" class="link-success"> Nombre </a>
+                    </th>
+                    <th class="text-primary text-center"><a href="?orden=apellidos" class="link-success"> Apellidos </a>
+                    </th>
+                    <th class="text-primary text-center"><a href="?orden=edad" class="link-success"> Edad </a> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="socio: ${listasocios}">
 
-            <td th:text="${socio.nombre}"></td>
-            <td th:text="${socio.apellidos}"></td>
-            <td th:text="${socio.edad}"></td>
+                    <td th:text="${socio.nombre}"></td>
+                    <td th:text="${socio.apellidos}"></td>
+                    <td th:text="${socio.edad}"></td>
 
-        </tr>
-
-    </table>
-    <a href="formulariosocio" class="btn btn-primary">Insertar nuevo socio</a>
+                </tr>
+            </tbody>
+        </table>
+        <a href="formulariosocio" class="btn btn-info">Insertar nuevo socio</a>
+    </div>
 </body>
 
 </html>
