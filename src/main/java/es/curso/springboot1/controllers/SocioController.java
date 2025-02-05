@@ -6,9 +6,12 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.curso.springboot1.negocio.Socio;
+import jakarta.annotation.PostConstruct;
 
 
 @Controller
@@ -24,7 +27,7 @@ public class SocioController {
         socios.add(new Socio("Carlota", "Castañeda", 15));
         
     }
-    
+
     @GetMapping("/listasocios")
     public String listasocios(Model modelo) {
         modelo.addAttribute("listasocios", socios);
@@ -49,4 +52,12 @@ public class SocioController {
         modelo.addAttribute("nombre",nombre);
         return "plantillaversocio";
     } 
+    @PostMapping("/insertarsocio")
+    public String insertarsocio(@ModelAttribute Socio socio, Model modelo) {
+        //añadir un socio
+        socios.add(socio);
+        //A el modelo, le paso la nueva lista 
+        modelo.addAttribute("listasocios", socios);
+        return "listasocios";
+    }
 }

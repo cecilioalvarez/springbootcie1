@@ -10,8 +10,10 @@
     </head>
 
     <body>
+        <title>Formulario de socios</title>
+        <h1>Formulario de nuevos socios: </h1>
         <div class="container">
-            <form>
+            <form for="/insertarsocio" method="post">
                 <div>
                     <label for="nombre" class="form-label">Nombre:</label>
                     <input type="text" class="form-control " id="nombre" name="nombre">
@@ -25,6 +27,10 @@
                     <input type="text" class="form-control" id="edad" name="edad">
                 </div>
             </form>
+        </div>
+        
+        <div>
+            <input type="submit" form="btn-primary" value="nuevo">
         </div>
     </body>
 
