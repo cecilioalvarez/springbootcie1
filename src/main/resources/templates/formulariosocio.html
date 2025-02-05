@@ -1,0 +1,41 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    </head>
+
+    <div class="container">
+    <h1 class="text-center color-darkred font-weight-light" >Nuevo Socio</h1>
+    <body>
+
+        <form class="w3-container" method="post" action="insertarsocio">
+
+            <div class="form-group w3-container">
+
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre"/>
+            </div>
+            <br>
+            <div class="w3-container">
+
+                <label for="apellidos" class="form-label">Apellidos:</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="insertar apellidos"/>
+            </div>
+            <br>
+            <div class="w3-container">
+
+                <label for="edad" class="form-label">Edad:</label>
+                <input type="text" class="form-control" id="edad" name="edad" placeholder="insertar edad"/>
+            </div>
+            <br>
+            <div class="w3-container">
+
+                <input type="submit" class="btn btn-danger" value="insertar"/>
+            </div>
+        </form>
+        
+    </body>
+</div>
+</html>
