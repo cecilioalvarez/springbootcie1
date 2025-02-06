@@ -15,14 +15,18 @@
     <p class="text-center"> Estos son los asociados actuales: </p>
 
     <div class="container">
-        <table class="table table-hover">
-            <thead class="table-warning">
+        <table class="table table-hover text-center">
+            <thead class="table-info">
                 <tr>
-                    <th class="text-primary text-center"> <a href="?orden=nombre" class="link-success"> Nombre </a>
+                    <th class="text-center"> <a href="?orden=nombre" class="link-secondary"> Nombre </a>
                     </th>
-                    <th class="text-primary text-center"><a href="?orden=apellidos" class="link-success"> Apellidos </a>
+                    <th class="text-center"><a href="?orden=apellidos" class="link-secondary"> Apellidos
+                        </a>
                     </th>
-                    <th class="text-primary text-center"><a href="?orden=edad" class="link-success"> Edad </a> </th>
+                    <th class="text-center text-secondary"><a href="?orden=edad" class="link-secondary"> Edad </a> </th>
+                    <th class="text-center text-secondary">Eliminar registro</th>
+                    <th class="text-center text-secondary">Ver detalle</th>
+                    <th class="text-center text-secondary">Editar datos</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,11 +35,16 @@
                     <td th:text="${socio.nombre}"></td>
                     <td th:text="${socio.apellidos}"></td>
                     <td th:text="${socio.edad}"></td>
-
+                    <td><a th:href="@{borrar(nombre=${socio.nombre})}"
+                            class="btn btn-warning text-danger fw-bold">Eliminar</a></td>
+                    <td><a th:href="@{detalle(nombre=${socio.nombre})}"
+                            class="btn btn-outline-success text-black fw-bold">Ver detalle</a></td>
+                    <td><a th:href="@{editar(nombre=${socio.nombre})}"
+                            class="btn btn-outline-success text-black fw-bold">🖉</a></td>
                 </tr>
             </tbody>
         </table>
-        <a href="formulariosocio" class="btn btn-info">Insertar nuevo socio</a>
+        <a href="formulariosocio" class="btn btn-info mt-4">Insertar nuevo socio</a>
     </div>
 </body>
 

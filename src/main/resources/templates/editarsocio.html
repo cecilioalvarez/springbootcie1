@@ -11,17 +11,18 @@
 
 </head>
 
-<body>
+<body class="text-center">
     <div class="container">
-        <form method="post" action="insertarsocio">
+        <form method="post" action="salvarsocio" th:object="${socio}">
             <div class="form-group"> <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
+                <input type="hidden" id="nombreAntiguo" th:value="${socio.nombre}" name="nombreAntiguo">
             </div>
             <div class="form-group"> <label for="apellidos" class="form-label">Apellidos:</label>
-                <input type="text" class="form-control" id="apellidos" name="apellidos">
+                <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}" name="apellidos">
             </div>
             <div class="form-group"> <label for="edad" class="form-label">Edad:</label>
-                <input type="number" class="form-control" id="edad" name="edad">
+                <input type="number" class="form-control" id="edad" th:field="*{edad}" name="edad">
             </div>
             <a href="listasocios" class="btn btn-warning">🡸</a>
             <input type="submit" value="Insertar" class="btn btn-info" />
