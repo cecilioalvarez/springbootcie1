@@ -7,32 +7,33 @@
     </head>
 
     <div class="container">
-    <h1 class="text-center font-weight-light" >Nuevo Socio</h1>
+    <h1 class="text-center font-weight-light" >Editar Socio</h1>
     <body>
 
-        <form class="container" method="post" action="insertarsocio">
+        <!--El formulario va a gestionar el socio-->
+        <form class="container" method="post" action="salvarsocio" th:object="${socio}">
 
-            <div class="form-group w3-container">
+            <div class="form-group container">
 
                 <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre"/>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre" th:field="*{nombre}" readonly/>
             </div>
             <br>
             <div class="container">
 
                 <label for="apellidos" class="form-label">Apellidos:</label>
-                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="insertar apellidos"/>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="insertar apellidos" th:field="*{apellidos}"/>
             </div>
             <br>
             <div class="container">
 
                 <label for="edad" class="form-label">Edad:</label>
-                <input type="text" class="form-control" id="edad" name="edad" placeholder="insertar edad"/>
+                <input type="text" class="form-control" id="edad" name="edad" placeholder="insertar edad" th:field="*{edad}"/>
             </div>
             <br>
             <div class="container">
 
-                <input type="submit" class="btn btn-warning text-white" value="insertar"/>
+                <input type="submit" class="btn btn-warning text-white container" value="Guardar Cambios"/>
             </div>
         </form>
         
