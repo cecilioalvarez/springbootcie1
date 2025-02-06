@@ -45,7 +45,9 @@
                 <th><a href="?orden=nombre" class="link-secondary">Nombre</a></th>
                 <th><a href="?orden=apellidos" class="link-secondary">Apellidos</a></th>
                 <th><a href="?orden=edad" class="link-secondary">Edad</a></th>
-                
+                <th class="link-secondary">Borrar</th>
+                <th class="link-secondary">Detalle</th>
+                <th class="link-secondary">Editar</th>
             </tr>
 
         </thead>
@@ -59,6 +61,12 @@
                     <td th:text="${socio.apellidos}"></td>
 
                     <td th:text="${socio.edad}"></td>
+
+                    <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-primary">Borrar</a></td>
+
+                    <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-primary">Detalle</a></td>
+
+                    <td><a th:href="@{editar(nombre=${socio.nombre})}" class="btn btn-primary">Editar</a></td>
 
                 </tr>
         </tbody>
