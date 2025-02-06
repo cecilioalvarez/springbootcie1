@@ -13,8 +13,9 @@
     <div class="form-group">
       <label for="nombre" class="form-label">Nombre</label>
     
-      <input type="text"  class="form-control" id="nombre" readonly th:field="*{nombre}" name="nombre"/>
-      <input type="hidden" id="nombreAntiguo" th:value="${socio.nombre}" name="nombreAntiguo"/>
+      <input type="text"  class="form-control" id="nombre" th:field="*{nombre}" name="nombre"/>
+      <input type="hidden" id="nombreAntiguo" 
+      th:value="${socio.nombre}" name="nombreAntiguo"/>
 
     </div>
     <div class="form-group">
@@ -26,7 +27,7 @@
         <input type="text"  class="form-control" id="edad" th:field="*{edad}" name="edad">
     </div>
     <br>
-    <input type="submit" class="btn btn-primary btn-lg mt-2" value="Nuevo"/>
+    <input type="submit" class="btn btn-primary btn-lg mt-2" value="Guardar"/>
   </form>
   </div>
 </html>
