@@ -16,6 +16,7 @@
                     <th><a href="?orden=nombre">Nombre</a></th>
                     <th><a href="?orden=apellidos">Apellido</a></th>
                     <th><a href="?orden=edad">Edad</a></th>
+                    <th>Borrar</th>
                 </thead>
                 <tr>
                 </tr>
@@ -23,6 +24,7 @@
                     <td th:text="${socio.nombre}"></td>
                     <td th:text="${socio.apellidos}"></td>
                     <td th:text="${socio.edad}"></td>
+                    <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-primary">Borrar</a></td>
                 </tr>
              </table>
             </div>
@@ -31,7 +33,4 @@
             </div>
         </body>
   </div>
-
-
-
 </html>

@@ -39,6 +39,13 @@ public class SocioController {
 
     }
 
+    @GetMapping("/borrar")
+    public String borrarSocio(@RequestParam("nombre")String nombre) {
+    Socio s=new Socio(nombre);
+     socios.remove(s);
+     return"redirect:listasocios";
+    }
+
     @GetMapping(value = "/listasocios", params = "orden")
     public String listasocios(Model modelo, @RequestParam String orden) {
 
