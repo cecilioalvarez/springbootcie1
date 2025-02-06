@@ -14,7 +14,8 @@
         <form method="post" action="salvarsocio" th:object="${socio}">
             <div class="form-group">
                 <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" readonly th:field="*{nombre}" name="nombre" />
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" />
+                <input type="hidden" id="nombreAntiguo" th:value="${socio.nombre}" name="nombreAntiguo" />
             </div>
 
 
@@ -22,6 +23,7 @@
             <div>
                 <label for="apellidos" class="form-label">Apellidos:</label>
                 <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}" name="apellidos" />
+                
             </div>
 
             <div>
@@ -30,7 +32,7 @@
             </div>
 
             <div>
-                <input type="submit" class="btn btn-primary" value="nuevo" />
+                <input type="submit" class="btn btn-primary mt-2" value="nuevo" />
 
             </div>
         </form>

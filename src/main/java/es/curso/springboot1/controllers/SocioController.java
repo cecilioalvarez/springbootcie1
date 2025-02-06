@@ -72,12 +72,13 @@ public class SocioController {
     }
 
     @PostMapping("/salvarsocio")
-    public String salvarSocio(@ModelAttribute Socio socio) {
+    public String salvarSocio(@ModelAttribute Socio socio,@RequestParam String nombreAntiguo) {
         Optional<Socio> oSocio= 
-        socios.stream().filter((s))->s.getNombre().equals(socio.getNombre()).findFirst();
+        socios.stream().filter((s)->s.getNombre().equals(nombreAntiguo)).findFirst();
         if (oSocio.isPresent()){
       
             Socio socioActual=oSocio.get();
+            socioActual.setNombre(socio.getNombre());
             socioActual.setApellidos(socio.getApellidos());
             socioActual.setEdad(socio.getEdad());
         }
