@@ -9,7 +9,7 @@
         </p> </div>-->
     <body>
         <div class="container">
-        <h2 class="text-center">Lista de Socios</h2>
+        <h2 class="text-center text-danger">Lista de Socios</h2>
 
     <table class="table table-hover">
         <thead class="table-success">
@@ -17,6 +17,9 @@
             <th><a href="?orden=nombre" class="link-primary">NOMBRE</a></th>
             <th><a href="?orden=apellido" class="link-primary">APELLIDOS</a></th>
             <th><a href="?orden=edad" class="link-primary">EDAD</a></th>
+            <th class="link-primary">BORRAR</th>
+            <th class="link-primary">DETALLE</th>
+            <th class="link-primary">EDITAR</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +28,9 @@
             <td th:text="${socio.nombre}"></td>
             <td th:text="${socio.apellidos}"></td>
             <td th:text="${socio.edad}"></td>
+            <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-danger w-bold">Borrar</a></td>
+            <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-warning w-bold">Detalle</a></td>
+            <td><a th:href="@{editar(nombre=${socio.nombre})}" class="btn btn-danger w-bold">Editar</a></td>
 
         </tr>
     </tbody>
