@@ -16,7 +16,8 @@
             <div class="form-group container">
 
                 <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre" th:field="*{nombre}" readonly/>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre" th:field="*{nombre}"/>
+                <input type="hidden" id="nombreAntiguo" name="nombreAntiguo" th:value="${socio.nombre}"/>
             </div>
             <br>
             <div class="container">
@@ -30,10 +31,10 @@
                 <label for="edad" class="form-label">Edad:</label>
                 <input type="text" class="form-control" id="edad" name="edad" placeholder="insertar edad" th:field="*{edad}"/>
             </div>
-            <br>
+            
             <div class="container">
 
-                <input type="submit" class="btn btn-warning text-white container" value="Guardar Cambios"/>
+                <input type="submit" class="btn btn-warning text-white container mt-5" value="Guardar Cambios"/>
             </div>
         </form>
         

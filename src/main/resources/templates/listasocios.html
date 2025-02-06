@@ -16,9 +16,9 @@
             <th class="text-center"><a href="?orden=nombre" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Nombre</a></th>
             <th class="text-center"><a href="?orden=apellidos" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Apellidos</a></th>
             <th class="text-center"><a href="?orden=edad" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Edad</a></th>
-            <th class="font-italic">Borrar Socio</th>
-            <th class="font-italic">Detalle Socio</th>
-            <th class="font-italic">Editar Socio</th>
+            <th class="font-italic text-center">Borrar Socio</th>
+            <th class="font-italic text-center">Detalle Socio</th>
+            <th class="font-italic text-center">Editar Socio</th>
         </tr>
 
     </thead>
@@ -27,9 +27,9 @@
             <td class="text-center" th:text="${socio.nombre}" ></td>
             <td class="text-center" th:text="${socio.apellidos}"></td>
             <td class="text-center" th:text="${socio.edad}"></td>
-            <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-warning text-white">Borrar</a></td>
-            <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-warning text-white">Detalle</a></td>
-            <td><a th:href="@{editar(nombre=${socio.nombre})}" class="btn btn-warning text-white">Editar</a></td>
+            <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🏜</a></td>
+            <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🎕</a></td>
+            <td><a th:href="@{editar(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🕷</a></td>
 
         </tr>
         </tbody>
