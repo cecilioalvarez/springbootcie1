@@ -84,16 +84,16 @@ public class SocioController {
 
     @PostMapping("/salvarsocio")
     public String salvarSocio(@ModelAttribute Socio socio, @RequestParam String nombreAntiguo) {
+
         Optional<Socio> oSocio = socios.stream().filter((s) -> s.getNombre().equals(nombreAntiguo)).findFirst();
-        if (oSocio.isPresent()){
-        Socio socioActual = oSocio.get();
-        socioActual.setNombre(socio.getNombre());
-        socioActual.setApellidos(socio.getApellidos());
-        socioActual.setEdad(socio.getEdad());
+        if (oSocio.isPresent()) {
+            Socio socioActual = oSocio.get();
+            socioActual.setNombre(socio.getNombre());
+            socioActual.setApellidos(socio.getApellidos());
+            socioActual.setEdad(socio.getEdad());
         }
         return "redirect:listasocios";
     }
-
     @GetMapping("/socios")
     public String socios() {
         return "plantillasocio";
