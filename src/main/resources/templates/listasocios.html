@@ -27,8 +27,8 @@
             <td class="text-center" th:text="${socio.nombre}" ></td>
             <td class="text-center" th:text="${socio.apellidos}"></td>
             <td class="text-center" th:text="${socio.edad}"></td>
-            <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🏜</a></td>
-            <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🎕</a></td>
+            <td><a th:href="@{borrar(nombre=${socio.nombre})}" class="btn btn-warning text-white container">Borrar</a></td>
+            <td><a th:href="@{detalle(nombre=${socio.nombre})}" class="btn btn-warning text-white container">Ver Detalles</a></td>
             <td><a th:href="@{editar(nombre=${socio.nombre})}" class="btn btn-warning text-white container">🕷</a></td>
 
         </tr>
