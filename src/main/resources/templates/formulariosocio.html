@@ -17,31 +17,60 @@
             $(function(){
                 $("#f").submit(function(e){
                     e.preventDefault();
-                    var nombretxt=$("#nombre").val();
-                    if(nombretxt.length>3 && nombretxt.length<10){
-                        console.log("es correcto");
-                    }else{
-                        console.log("es incorrecto");
+                    let nombretxt = $("#nombre").val();
+                    
+                    if(!validarApellidos(nombretxt))
                         $("#nombre").next().removeClass("valido").addClass("novalido");
-                        //console.log($("nombre").val());
-                        //alert("tienes el control");
-                    }
+                
                 });
                 
-                
                 $("#nombre").on("input",function(e){
-                    
-                    var nombretxt=$(this).val();
 
-                    if(nombretxt.length>=3 && nombretxt.length<=10){
+                    let $cajaNombre=$(this);
+                    //let nombretxt=$(this).val();
+
+                    if(!validarApellidos($cajaNombre.val()))
                         
-                        $("#nombre").next().removeClass("novalido").addClass("valido");
-                    }else{
-                        $("#nombre").next().removeClass("valido").addClass("novalido");
-                    }
+                        $cajaNombre.next().removeClass().addClass("novalido");
+                        else $cajaNombre.next().removeClass().addClass("valido");
                     
-                });    
+                });
             });
+
+            function validarApellidos(nombretxt){
+                //operador ternario
+           return nombretxt.length>=3 && nombretxt.length<=10? true:false;
+            }
+
+
+
+            $(function(){
+                $("#f").submit(function(e){
+                    e.preventDefault();
+                    let apellidostxt = $("#apellidos").val();
+                    
+                    if(!validarApellidos(apellidostxt))
+                        $("#apellidos").next().removeClass("valido").addClass("novalido");
+                
+                });
+                
+                $("#apellidos").on("input",function(e){
+
+                    let $cajaApellidos=$(this);
+
+                    if(!validarApellidos($cajaApellidos.val()))
+                        
+                        $cajaApellidos.next().removeClass().addClass("novalido");
+                        else $cajaApellidos.next().removeClass().addClass("valido");
+                    
+                });
+            });
+
+            function validarApellidos(apellidostxt){
+                //operador ternario
+           return apellidostxt.length>=3 && apellidostxt.length<=20? true:false;
+           
+            }
         </script>
 
     </head>
@@ -52,7 +81,7 @@
 
         <form class="container" id="f" method="post" action="insertarsocio">
 
-            <div class="form-group w3-container">
+            <div class="form-group container">
 
                 <label for="nombre" class="form-label">Nombre:</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="insertar nombre"/>
@@ -60,13 +89,14 @@
 
             </div>
             <br>
-            <div class="container">
+            <div class="form-group container">
 
                 <label for="apellidos" class="form-label">Apellidos:</label>
                 <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="insertar apellidos"/>
+                <span class="valido">apellidos entre 3 y 20 caracteres</span>
             </div>
             <br>
-            <div class="container">
+            <div class="form-group container">
 
                 <label for="edad" class="form-label">Edad:</label>
                 <input type="text" class="form-control" id="edad" name="edad" placeholder="insertar edad"/>
