@@ -30,27 +30,20 @@
         //selectores este es el de id
         $("#f").submit(function (e) {
           e.preventDefault();
-
-          var nombretxt = $("#nombre").val();
-          if (validarNombre(nombretxt)) {
-            console.log("es correcto");
-          } else {
-            console.log("es incorrecto");
+          let nombretxt = $("#nombre").val();
+          if (!validarNombre(nombretxt))
             $("#nombre").next().removeClass("valido").addClass("novalido");
-          }
         });
 
         $("#nombre").on("input", function (e) {
-          var nombretxt = $(this).val();
-          if (validarNombre(nombretxt)) {
-            $("#nombre").next().removeClass("novalido").addClass("valido");
-          } else {
+          let nombretxt = $(this).val();
+          if (!validarNombre(nombretxt))
             $("#nombre").next().removeClass("valido").addClass("novalido");
-          }
+          else $("#nombre").next().removeClass("novalido").addClass("valido");
         });
       });
 
-      function validarNombre(nombre) {
+      function validarNombre(nombretxt) {
         if (nombretxt.length >= 3 && nombretxt.length <= 10) {
           return true;
         } else {
