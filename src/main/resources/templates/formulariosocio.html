@@ -16,11 +16,13 @@
         <script type="text/javascript">
             $(function(){
                 $("#f").submit(function(e){
-                    e.preventDefault();
+                    
                     let nombretxt = $("#nombre").val();
                     
-                    if(!validarApellidos(nombretxt))
+                    if(!validarNombre(nombretxt)){
                         $("#nombre").next().removeClass("valido").addClass("novalido");
+                        e.preventDefault();
+                    }
                 
                 });
                 
@@ -46,12 +48,13 @@
 
             $(function(){
                 $("#f").submit(function(e){
-                    e.preventDefault();
+                    
                     let apellidostxt = $("#apellidos").val();
                     
-                    if(!validarApellidos(apellidostxt))
+                    if(!validarApellidos(apellidostxt)){
                         $("#apellidos").next().removeClass("valido").addClass("novalido");
-                
+                        e.preventDefault();
+                    }
                 });
                 
                 $("#apellidos").on("input",function(e){
@@ -65,7 +68,6 @@
                     
                 });
             });
-
             function validarApellidos(apellidostxt){
                 //operador ternario
            return apellidostxt.length>=3 && apellidostxt.length<=20? true:false;
