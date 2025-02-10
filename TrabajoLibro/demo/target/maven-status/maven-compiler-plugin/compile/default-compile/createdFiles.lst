@@ -1,0 +1,4 @@
+es/trabajolibro/demo/DemoApplication.class
+es/trabajolibro/demo/negocio/Libro.class
+es/trabajolibro/demo/controllers/LibroController.class
+es/trabajolibro/demo/repositories/LibroRepositoryMemoria.class
