@@ -17,11 +17,12 @@
      <script type="text/javascript">
         $(function() {
             //selectores este es el de id
-            $("#f").submit(function(e) {
-            e.preventDefault();
+            $("#f").submit(function(e) {            
             let nombretxt=$("#nombre").val();
-            if (!validarNombre(nombretxt))  
+            if (!validarNombre(nombretxt)){  
             $("#nombre") .next().removeClass("valido").addClass("novalido");
+            e.preventDefault();
+            }
             });
 
             $("#nombre").on("input",function(e) {
@@ -38,8 +39,11 @@
           $(function() {
           $("#f").submit(function(e) {
           let apellidostxt=$("#apellidos").val();
-            if (!validarApellidos(apellidostxt))  
+            if (!validarApellidos(apellidostxt)) { 
             $("#apellidos") .next().removeClass("valido").addClass("novalido");
+            e.preventDefault();
+            }
+
             });
 
             $("#apellidos").on("input",function(e) {
