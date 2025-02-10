@@ -24,16 +24,18 @@
     $(function () {
       //selectores este es el de id 
       $("#miformulario").submit(function (e) {
-        e.preventDefault();
+
         let nombretxt = $("#nombre").val();
-        if (!validarNombre(nombretxt))
+        if (!validarNombre(nombretxt)){
           $("#nombre").next().removeClass("valido").addClass("novalido");
+          e.preventDefault();
+        }
       });
 
       $("#nombre").on("input", function (e) {
-        let nombretxt = $(this).val();
-        if (!validarNombre(nombretxt))
-          $("#nombre").next().removeClass("valido").addClass("novalido");
+        let $cajaNombre =(this);
+        if (!validarNombre($cajaNombre.val()))
+          $cajaNombre.next().removeClass("valido").addClass("novalido");
         else $("#nombre").next().removeClass("novalido").addClass("valido");
       });
     });
@@ -42,22 +44,13 @@
      return nombretxt.length >= 3 && nombretxt.length <= 11? true:false; 
     }
 
-    $(function () {
-      //selectores este es el de id 
-      $("#miformulario").submit(function (e) {
-        e.preventDefault();
-        let apellidos = $("#apellidos").val();
-        if (!validarApellidos(apellidosxt))
-          $("#apellidos").next().removeClass("valido").addClass("novalido");
-      });
-
-      $("#apellidos").on("input", function (e) {
-        let apellidostxt = $(this).val();
-        if (!validarApellidos(apellidostxt))
-          $("#apellidos").next().removeClass("valido").addClass("novalido");
-        else $("#apellidos").next().removeClass("novalido").addClass("valido");
-      });
-    });
+    //  $("#apellidos").on("input", function (e) {
+     //   let apellidostxt = $(this).val();
+      //  if (!validarApellidos(apellidostxt))
+      //    $("#apellidos").next().removeClass("valido").addClass("novalido");
+      //  else $("#apellidos").next().removeClass("novalido").addClass("valido");
+     // });
+   // });
 
     function validarApellidos(apellidostxt) {
      return apellidostxt.length >= 3 && apellidostxt.length <= 11? true:false; 
