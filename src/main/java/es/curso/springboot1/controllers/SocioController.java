@@ -1,12 +1,9 @@
 package es.curso.springboot1.controllers;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-// import java.lang.*;
-// import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,50 +12,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.curso.springboot1.negocio.Socio;
+import es.curso.springboot1.repositories.SocioRepositoryMemoria;
 
 @Controller
 public class SocioController {
 
-    List<Socio> socios = new ArrayList<Socio>();
+    @Autowired
+    private SocioRepositoryMemoria socioRepository;
 
     public SocioController() {
-
-        socios.add(new Socio("pepe", "Perez", 30));
-        socios.add(new Socio("Juan", "Rodriguez", 25));
-        socios.add(new Socio("José", "Ruiz", 20));
-        socios.add(new Socio("Carlota", "Castañeda", 15));
 
     }
 
     @GetMapping("/listasocios")
     public String listasocios(Model modelo) {
-        modelo.addAttribute("listasocios", socios);
-        System.out.println(socios.size());
+        modelo.addAttribute("listasocios", socioRepository.buscarTodos());
         return "listasocios";
     }
 
-    // funcion ordenador socios
+    // funcion ordenar socios
     @GetMapping(value = "/listasocios", params = "orden")
     public String listasocios(Model modelo, @RequestParam String orden) {
-        List<Socio> listaOrdenada = new ArrayList<>();
-
-        if (orden.equals("nombre")) {
-            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getNombre)).toList();
-
-        } else if (orden.equals("apellidos")) {
-            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getApellidos)).toList();
-
-        } else {
-            listaOrdenada = socios.stream().sorted(Comparator.comparing(Socio::getEdad)).toList();
-        }
+        List<Socio> listaOrdenada = socioRepository.buscarTodosOrdenados(orden);
         modelo.addAttribute("listasocios", listaOrdenada);
-        System.out.println(orden);
         return "listasocios";
-    }
-
-    @GetMapping("/socios")
-    public String socios() {
-        return "plantillasocio";
     }
 
     @GetMapping("/formulariosocio")
@@ -66,60 +43,41 @@ public class SocioController {
         return "formulariosocio";
     }
 
-    @GetMapping("/versocio")
-    public String verSocio(@RequestParam String nombre, Model modelo) {
-
-        System.out.println(nombre);
-        modelo.addAttribute("nombre", nombre);
-        return "plantillaversocio";
-    }
-
     // funcion añadir socio
     @PostMapping("/insertarsocio")
     public String insertarsocio(@ModelAttribute Socio socio) {
-        socios.add(socio);
+        socioRepository.insertarsocio(socio);
         return "redirect:listasocios";
     }
 
     // funcion borrar socio
     @GetMapping("/borrar")
     public String borrarsocio(@RequestParam("nombre") String nombre) {
-        Socio s = new Socio(nombre);
-        socios.remove(s);
+        socioRepository.borrarsocio(nombre);
         return "redirect:listasocios";
     }
 
     @GetMapping("/detallesocio")
     public String detalleSocio(@RequestParam("nombre") String nombre, Model modelo) {
-
-        Optional<Socio> oSocio = socios.stream().filter((s) -> s.getNombre().equals(nombre)).findFirst();
-
+        Optional<Socio> oSocio = socioRepository.BuscarUno(nombre);
         if (oSocio.isPresent()) {
-
             modelo.addAttribute("socio", oSocio.get());
-
         }
-
         return "detallesocio";
     }
 
     @GetMapping("/editar")
     public String editarSocio(@RequestParam("nombre") String nombre, Model modelo) {
-
-        Optional<Socio> oSocio = socios.stream().filter((s) -> s.getNombre().equals(nombre)).findFirst();
-
+        Optional<Socio> oSocio = socioRepository.BuscarUno(nombre);
         if (oSocio.isPresent()) {
-
             modelo.addAttribute("socio", oSocio.get());
-
         }
-
         return "formularioeditarsocio";
     }
 
     @PostMapping("/salvarsocio")
     public String salvarsocio(@ModelAttribute Socio socio, @RequestParam String nombreAntiguo) {
-        Optional<Socio> oSocio = socios.stream().filter((s) -> s.getNombre().equals(nombreAntiguo)).findFirst();
+        Optional<Socio> oSocio = socioRepository.BuscarUno(nombreAntiguo);
         if (oSocio.isPresent()) {
             Socio socioActual = oSocio.get();
             socioActual.setNombre(socio.getNombre());
