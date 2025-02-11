@@ -29,32 +29,30 @@
       $(function () {
         //selectores este es el de id
         $("#f").submit(function (e) {
-          e.preventDefault();
+         
           let nombretxt = $("#nombre").val();
-          if (!validarNombre(nombretxt))
+          if (!validarNombre(nombretxt)) {
             $("#nombre").next().removeClass("valido").addClass("novalido");
+            e.preventDefault();
+          }
         });
 
         $("#nombre").on("input", function (e) {
-          let nombretxt = $(this).val();
-          if (!validarNombre(nombretxt))
-            $("#nombre").next().removeClass("valido").addClass("novalido");
-          else $("#nombre").next().removeClass("novalido").addClass("valido");
+          let $cajaNombre = $(this);
+          if (!validarNombre($cajaNombre.val()))
+            $cajaNombre.next().removeClass().addClass("novalido");
+          else $cajaNombre.next().removeClass().addClass("valido");
         });
       });
 
       function validarNombre(nombretxt) {
-        if (nombretxt.length >= 3 && nombretxt.length <= 10) {
-          return true;
-        } else {
-          return false;
-        }
+        return nombretxt.length >= 3 && nombretxt.length <= 10 ? true : false;
       }
     </script>
   </head>
   <body>
     <div class="container">
-      <form id="f" method="post" action="insertarsocio">
+      <form   id="f" method="post" action="insertarsocio">
         <div class="form-group">
           <label for="nombre" class="form-label">Nombre:</label>
           <input type="text" class="form-control" id="nombre" name="nombre" />
