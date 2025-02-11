@@ -13,7 +13,6 @@ import es.curso.springboot1.negocio.Socio;
 @Repository
 @Qualifier("jdbc")
 public class SocioRepositoryJDBC  implements SocioRepository{
-
     @Autowired
     private JdbcTemplate plantilla;
 
@@ -30,22 +29,23 @@ public class SocioRepositoryJDBC  implements SocioRepository{
 
     @Override
     public List<Socio> buscarTodos() {
-        return plantilla.query("select * from socios", new SocioRowMapper());
 
+        return plantilla.query("select*from socios", new SocioRowMapper());
 
+       
     }
 
     @Override
     public Optional<Socio> buscarUno(String nombre) {
       
-     return null;
+        return null;
     }
 
     @Override
     public List<Socio> buscarTodosOrdenados(String orden) {
        
-      
-        return null;
+      return null;
+
     
     }
 }
