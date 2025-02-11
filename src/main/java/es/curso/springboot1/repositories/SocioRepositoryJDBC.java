@@ -26,6 +26,7 @@ public class SocioRepositoryJDBC  implements SocioRepository{
     @Override
     public List<Socio> buscarTodos() {
        
+        
     }
 
     @Override
