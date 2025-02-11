@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import es.curso.springboot1.negocio.Socio;
-@Repository
 @Qualifier("memoria")
+@Repository
 public class SocioRepositoryMemoria implements SocioRepository {
 
     List<Socio> socios = new ArrayList<Socio>();

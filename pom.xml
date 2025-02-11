@@ -65,11 +65,9 @@
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-jdbc</artifactId>
-
-</dependency>
-
-	</dependencies>
-
+</dependency>    
+    <!-- Otros componentes de Spring Boot que puedas necesitar -->
+</dependencies>
 	<build>
 		<plugins>
 			<plugin>
