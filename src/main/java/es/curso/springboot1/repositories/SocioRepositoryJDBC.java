@@ -3,6 +3,7 @@ package es.curso.springboot1.repositories;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import es.curso.springboot1.negocio.Socio;
 @Qualifier("jdbc")
 public class SocioRepositoryJDBC  implements SocioRepository{
 
-
+    @Autowired
     private JdbcTemplate plantilla;
 
     @Override
@@ -29,8 +30,6 @@ public class SocioRepositoryJDBC  implements SocioRepository{
 
     @Override
     public List<Socio> buscarTodos() {
-       
-
         return plantilla.query("select * from socios", new SocioRowMapper());
 
 

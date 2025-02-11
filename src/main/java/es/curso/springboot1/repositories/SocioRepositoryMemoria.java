@@ -5,10 +5,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import es.curso.springboot1.negocio.Socio;
 @Repository
+@Qualifier("memoria")
 public class SocioRepositoryMemoria implements SocioRepository {
 
     List<Socio> socios = new ArrayList<Socio>();
