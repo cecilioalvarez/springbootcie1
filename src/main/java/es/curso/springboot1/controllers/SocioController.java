@@ -19,8 +19,6 @@ import es.curso.springboot1.repositories.SocioRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-
-
 @Controller
 public class SocioController {
 
