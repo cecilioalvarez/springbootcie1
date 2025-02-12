@@ -20,19 +20,16 @@ public class SocioRepositoryJDBC  implements SocioRepository{
     @Override
     public void borrarSocio(String nombre) {
         
+        plantilla.update("delete from socios where nombre=?",nombre);
     }
-
     @Override
-    public void insertarSocio(Socio socio) {
-      
-      
+    public void insertarSocio(Socio socio) { 
+        plantilla.update("insert into socios values (?,?,?)",
+        socio.getNombre(),socio.getApellidos(),socio.getEdad());
     }
-
     @Override
     public List<Socio> buscarTodos() {
         return plantilla.query("select * from socios", new SocioRowMapper());
-
-
     }
 
     @Override
