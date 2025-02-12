@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#boton1").one('click', function () {
+                alert("How dare you...");
+                $("body").append("<p> You've clicked the button</p>")
+
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <input type="button" id="boton1" value="CLICK ME" />
+</body>
+
+</html>

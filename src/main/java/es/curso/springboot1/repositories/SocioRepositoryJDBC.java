@@ -20,13 +20,14 @@ public class SocioRepositoryJDBC implements SocioRepository {
     @Override
     public void borrarSocio(String nombre) {
 
-        throw new UnsupportedOperationException("Unimplemented method 'borrarSocio'");
+        plantilla.update("delete from socios where nombre =?", nombre);
     }
 
     @Override
     public void insertarSocio(Socio socio) {
 
-        throw new UnsupportedOperationException("Unimplemented method 'insertarSocio'");
+        plantilla.update("insert into socios values (?,?,?)",
+                socio.getNombre(), socio.getApellidos(), socio.getEdad());
     }
 
     @Override
