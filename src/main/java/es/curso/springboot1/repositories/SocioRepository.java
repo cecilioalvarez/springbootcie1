@@ -9,6 +9,8 @@ public interface SocioRepository {
 
     void borrarSocio(String nombre);
 
+
+    
     void insertarSocio(Socio socio);
 
     List<Socio> buscarTodos();
