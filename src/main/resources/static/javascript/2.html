@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<title>LISTA DE LA COMPRA</title>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#boton1").click(function () {
+                let valorCaja = $("#caja").val();
+                $("#lista1").append("<li>" + valorCaja + "</li>")
+
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    Pendiente de comprar: <input type="text" id="caja" />
+    <input type="button" id="boton1" value="CLICK ME" />
+    <ul id="lista1">
+
+    </ul>
+</body>
+
+</html>
