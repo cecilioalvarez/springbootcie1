@@ -22,12 +22,15 @@ public class SocioRepositoryJDBC implements SocioRepository{
     @Override
     public void borrarSocio(String nombre) {
         
+        //consultas parametrizadas
+        plantilla.update ("delete from socios where nombre=?",nombre);
         
     }
 
     @Override
     public void insertarsocio(Socio socio) {
         
+        plantilla.update ("insert into socios values (?,?,?)",socio.getNombre(),socio.getApellidos(),socio.getEdad());
         
     }
 

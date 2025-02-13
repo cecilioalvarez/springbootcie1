@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+        crossorigin="anonymous"></script>
+        <script type="text/javascript">
+           
+           //es la funcion $ que recibe otra funcion como parametro
+           //$ objeto de jquery
+            $(function(){
+
+                
+                $("#boton1").click(function(){
+                    let valorCaja=$("#caja").val();
+                    $("#lista1").append("<li>"+valorCaja+"</li>");
+                    
+                    
+                })
+            })
+        </script>
+    </head>
+    <body>
+
+        Text box: <input type="text" id="caja"/>
+        <input type="button" id="boton1" value="pulsar"/>
+        <ul id="lista1">
+
+
+        </ul>
+
+    </body>
+
+</html>
