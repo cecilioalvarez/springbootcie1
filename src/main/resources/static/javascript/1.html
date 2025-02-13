@@ -3,17 +3,24 @@
     integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(function(){
+        //let numero=0;
         
-       $("#boton1").click(function(){
-        alert("has pulsado");
-        $("body").append("<p>hola has pulsado</p>");
+       $("#boton1").click(function(){ 
+        let valorCaja=$("#caja").val();     
+        $("#lista1").append("<li>"+valorCaja+"</li>");
+        //numero++;
        })
 
     })
 </script>
 </head>
 <body>
+    Caja de Texto<input type="text" id="caja"/>
     <input type="button" id="boton1" value="pulsamen"/>
+    <ul id="lista1">
+
+
+    </ul>
 </body>
 
 </html>
