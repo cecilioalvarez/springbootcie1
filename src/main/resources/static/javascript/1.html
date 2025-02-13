@@ -15,19 +15,31 @@
         //})
         //para que me lea el javascript debemos de ponerle siempre $(fuction)...
 
+       // $(function () {
+         //   $("#boton1").click(function () {
+           // alert("Haz pulsado");
+           // $("body").append("<p>Haz pulsado</p>");
+       // })
+      //  })                 
+        
         $(function () {
+            let numero=0;
             $("#boton1").click(function () {
-            alert("Haz pulsado");
-            $("body").append("<p>Haz pulsado</p>");
+                let valorcaja=$("#caja").val();
+            $("#lista1").append("<li>" +valorcaja+"</li>");
+            //numero++;
         })
-        })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        })                 
+        
+    
     </script>
 
 <body>
-
+    Caja de texto<input type="text" id="caja">
     <input style="color: blue;" type="button" id="boton1" value="pulsame" />
+    <ul id="lista1">
+
+    </ul>
 </body>
 </head>
-Hola
-
 </html>
