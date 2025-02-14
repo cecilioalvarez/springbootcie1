@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8">
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+        <script type="text/javascript">
+    
+            $(function() {
+    
+                $("#boton1").one('click',function () {
+                    alert("me has pulsado");
+                    $("body").append("<p> hola has pulsado</p>");
+                })
+    
+            })
+
+            $(function() {
+                $("#boton2").one('click', function(){
+
+                    alert("no deberías haberme pulsado, prepárate");
+                    
+                    
+                })
+            })
+    
+        </script>
+        
+    </head>
+<body>
+    <input type="button" id="boton1" value="púlsame"/>
+    <input type="button" id="boton2" value="no me pulses">
+</body>
+</html>
