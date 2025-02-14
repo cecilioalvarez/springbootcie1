@@ -18,6 +18,23 @@
     ></script>
 
     <script type="text/javascript">
+
+      $(function()  {
+        console.log ("el documento cargo");
+       let socio1={nombre:"pepe",apellido:"gomez", edad:"20" }
+       let socio2={nombre:"Ana",apellido:"Montoya", edad:"33" }
+       let lista=[];
+       lista.push(socio1, socio2);
+       console.log(lista);
+        for(let i=0;i<lista.length;i++){
+          $("#lista ul")
+          .append(`<li class='list-group-item'>${lista[i].nombre}${lista[i].apellido}${lista[i].edad}</li>`);
+
+      }
+
+        })
+
+
   
       
     </script>

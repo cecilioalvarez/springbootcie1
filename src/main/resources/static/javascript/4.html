@@ -1,92 +1,119 @@
-<html>
-  <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Comidas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-      // la pagina esta cargada
-      $(function () {
+        $(function () {
 
-        $("#formulario").hide();
-
-        $("li").click(function () {
-          if (!$(this).hasClass("bg-info")) {
-            $(this).addClass("bg-info");
-          } else {
-            $(this).removeClass("bg-info");
-          }
-        });
-
-        $("#botonmostrar").click(function() {
-
-            $("#lista").fadeOut("slow",function(){
-                $("#formulario").fadeIn("slow");
-
-            } );
-           
-        })
-
-        $("#boton").click(function() {
-
-        
-            let comida= $("#comida").val();
-            let precio= $("#precio").val();
-            var textoli="<li class='list-group-item'>"+comida+" <span>" +precio+"</span>Euros</li>";
-            $("ul").append(textoli);
-            $("#lista").show();
+            // Ocultar el formulario al cargar la página
             $("#formulario").hide();
-        })
 
+            // Cambiar color de los elementos de la lista al hacer clic
+            $("li").click(function () {
+                $(this).toggleClass("bg-info");
+            });
 
+            // Mostrar el formulario para añadir elementos a la lista
+            $("#botonmostrar").click(function () {
+                $("#lista").fadeOut("slow", function () {
+                    $("#formulario").fadeIn("slow");
+                });
+            });
 
-
-      });
+            // Añadir el nuevo elemento a la lista
+            $("#boton").click(function () {
+                let comida = $("#comida").val();
+                let precio = $("#precio").val();
+                var textoli = "<li class='list-group-item'>" + comida + " <span class='float-end'>" + precio + "€</span></li>";
+                $("ul").append(textoli);
+                $("#lista").show();
+                $("#formulario").hide();
+                $("#comida").val("");
+                $("#precio").val("");
+            });
+        });
     </script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row" id="lista">
-        <ul class="list-group">
-          <li class="list-group-item">Galletas <span>2</span>Euros</li>
-          <li class="list-group-item">Yogures <span>3</span>Euros</li>
-          <li class="list-group-item">Manzanas <span>5</span>Euros</li>
-          <li class="list-group-item">Chocolate <span>6</span>Euros</li>
-          <li class="list-group-item">Lechuga <span>1</span>Euros</li>
-        </ul>
-        <div class="form-group mt-3">
-            <input type="button" class="btn btn-primary" id="botonmostrar" value="añadir a la lista">
-          </div>
-      </div>
-      <div class="row mt-3" id="formulario">
-        <form>
-          <div class="form-group">
-            <label for="comida">Comida</label>
-            <input type="text" id="comida" class="form-control" />
-          </div>
 
-          <div class="form-group">
-            <label for="precio">Precio</label>
-            <input type="text" id="precio" class="form-control" />
-          </div>
-          <div class="form-group mt-3">
-            <input type="button" class="btn btn-primary" id="boton" value="añadir a la lista">
-          </div>
-        </form>
-      </div>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .list-group-item {
+            cursor: pointer;
+        }
+
+        .list-group-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .bg-info {
+            background-color: #17a2b8 !important;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Lista de Compras</h2>
+
+        <div class="row" id="lista">
+            <ul class="list-group">
+                <li class="list-group-item">Galletas <span class="float-end">2€</span></li>
+                <li class="list-group-item">Yogures <span class="float-end">3€</span></li>
+                <li class="list-group-item">Manzanas <span class="float-end">5€</span></li>
+                <li class="list-group-item">Chocolate <span class="float-end">6€</span></li>
+                <li class="list-group-item">Lechuga <span class="float-end">1€</span></li>
+            </ul>
+            <div class="form-group mt-3 text-center">
+                <input type="button" class="btn btn-primary" id="botonmostrar" value="Añadir a la lista">
+            </div>
+        </div>
+
+        <div class="row mt-3" id="formulario">
+            <h4 class="mb-3">Añadir un nuevo producto</h4>
+            <form>
+                <div class="form-group">
+                    <label for="comida">Comida</label>
+                    <input type="text" id="comida" class="form-control" placeholder="Nombre de la comida" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" class="form-control" placeholder="Precio en Euros" />
+                </div>
+
+                <div class="form-group mt-3 text-center">
+                    <input type="button" class="btn btn-primary" id="boton" value="Añadir a la lista">
+                </div>
+            </form>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

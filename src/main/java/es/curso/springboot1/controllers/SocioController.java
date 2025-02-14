@@ -1,10 +1,7 @@
 package es.curso.springboot1.controllers;
-
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Comparator;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +15,7 @@ import es.curso.springboot1.negocio.Socio;
 import es.curso.springboot1.repositories.SocioRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 

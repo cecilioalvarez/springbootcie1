@@ -11,7 +11,6 @@ public class SocioRowMapper implements RowMapper<Socio>{
 
     @Override
     public Socio mapRow(ResultSet rs, int posicion) throws SQLException {
-        // TODO Auto-generated method stub
       return new Socio(rs.getString("nombre"),
       rs.getString("apellidos"),
       rs.getInt("edad"));
