@@ -12,7 +12,25 @@
 
         //es la funcion $ que recibe otra funcion como parametro
         //$ objeto de jquery
+
+        //no hace falta definir clases en javascript
+        //array
+        let lista=[];
+
+        //establecemos los objetos
+        let o1={comida:"galletas",precio:2};
+        let o2={comida:"galletas",precio:2};
+
+        //lo introducimos en la lista
+        lista.push(o1,o2);
+        console.log(lista.length);
+
         $(function () {
+
+            for(var i=0;i<lista.length;i++){
+                let objeto=lista[i];
+                $("#lista ul").append(`<li class='list-group-item'>${objeto.comida} <span>${objeto.precio} </span>€</li>`);
+            }
 
             $("#formulario").hide();
 
@@ -36,7 +54,7 @@
             $("#boton").click(function () {
                 let comida = $("#comida").val();
                 let precio = $("#precio").val();
-                var textoli = "<li class='list-group-item'>" + comida + " " + "<span>" + precio + " " + "</span>€</li>";
+                var textoli = `<li class='list-group-item'>${comida} <span>${precio} </span>€</li>`;
                 $("ul").append(textoli);
                 $("#lista").show();
                 $("#formulario").hide();
@@ -51,9 +69,7 @@
     <div class="container">
         <div class="row" id="lista">
             <ul class="list-group">
-                <li class="list-group-item">Pasta <span>2 </span>€</li>
-                <li class="list-group-item">Arroz <span>3 </span>€</li>
-                <li class="list-group-item">Legumbres <span>5 </span>€</li>
+               
             </ul>
             <div class="form-group mt-4 d-grid gap-2 col-6 mx-auto">
                 <input type="button" class="btn btn-outline-warning" id="botonmostrar" value="Insertar nuevo">
@@ -66,7 +82,7 @@
                     <label for="comida">Comida</label>
                     <input type="text" id="comida" class="form-control" />
                 </div>
-                <div class="form-control">
+                <div class="form-group">
                     <label for="precio">Precio</label>
                     <input type="text" id="precio" class="form-control" />
                 </div>
