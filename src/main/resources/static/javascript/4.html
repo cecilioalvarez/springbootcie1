@@ -12,9 +12,20 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-
+        let lista = [];
+        let o1 = { comida: "leche", precio: 2 };
+        let o2 = { comida: "cacao", precio: 3 };
+        let o3 = { comida: "avellanas", precio: 4 };
+        let o4 = { comida: "azucar", precio: 6 };
+        lista.push(o1, o2, o3, o4);
 
         $(function () {
+
+            for (var i = 0; i < lista.length; i++) {
+                let objeto = lista[i];
+                $("#lista ul").append(`<li class='list-group-item'> ${objeto.comida}<span> ${objeto.precio}</span>€</li>`)
+
+            }
 
             $("#formulario").hide();
 
@@ -28,19 +39,29 @@
             });
 
             $("#mostrar").click(function () {
-                $("#lista").show();
-                $("#lista").hide();
+                $("#lista").fadeOut("slow", function () {
+                    $("#formulario").fadeIn("slow");
+                });
             })
+
 
             $("#boton").click(function () {
                 let comida = $("#comida").val();
                 let precio = $("#precio").val();
-                var textoli = "<li class='list-group-item'>" + comida + "<span>" + precio + "</span>€</li>";
+                var textoli = `<li class='list-group-item'> ${comida}<span> ${precio}</span>€</li>`;
                 $("ul").append(textoli);
-                $("#lista").show();
-                $("#formulario").hide();
+                $("#formulario").fadeOut("slow", function () {
+                    $("#lista").fadeIn("slow");
+                });
+            })
+            $("#volver").click(function () {
+                $("#formulario").fadeOut("slow", function () {
+                    $("#lista").fadeIn("slow");
+                });
+
             })
         })
+
     </script>
 
 </head>
@@ -49,11 +70,10 @@
     <div class="container">
         <div class="row" id="lista">
             <ul class="list-group">
-                <li class="list-group-item">Leche<span>2</span>€</li>
-                <li class="list-group-item">Cacao<span>3</span>€</li>
-                <li class="list-group-item">Avellanas<span>4</span>€</li>
-                <li class="list-group-item">Azúcar<span>5</span>€</li>
-                <li class="list-group-item">Nocilla<span>6</span>€</li>
+
+
+
+
             </ul>
             <div class="form-group mt-2">
                 <input type="button" class="btn btn-outline-warning" id="mostrar" value="add">
@@ -70,6 +90,7 @@
                     <input type="text" id="precio" class="form-control" />
                 </div>
                 <div class="form-group mt-2">
+                    <input type="button" class="btn btn-warning" id="volver" value="VOLVER">
                     <input type="button" class="btn btn-success" id="boton" value="AÑADIR">
                 </div>
         </div>
