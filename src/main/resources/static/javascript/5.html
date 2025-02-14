@@ -18,8 +18,19 @@
     ></script>
 
     <script type="text/javascript">
-      // la pagina esta cargada
+  
+      let lista=[];
+      let o1= {comida:"galletas",precio:2};
+      let o2= {comida:"galletas",precio:2};
+      lista.push(o1,o2);
+      console.log(lista.length);
       $(function () {
+        //carga inicial de elementos
+        for (var i=0;i<lista.length;i++) {
+          let objeto=lista[i];
+          $("#lista ul")
+          .append(`<li class='list-group-item'>${objeto.comida}<span>${objeto.precio}</span>Euros</li>`);
+        }
 
         $("#formulario").hide();
 
@@ -45,7 +56,7 @@
         
             let comida= $("#comida").val();
             let precio= $("#precio").val();
-            var textoli="<li class='list-group-item'>"+comida+" <span>" +precio+"</span>Euros</li>";
+            var textoli=`<li class='list-group-item'>${comida}<span>${precio}</span>Euros</li>`;
             $("ul").append(textoli);
             $("#lista").show();
             $("#formulario").hide();
@@ -61,11 +72,8 @@
     <div class="container">
       <div class="row" id="lista">
         <ul class="list-group">
-          <li class="list-group-item">Galletas <span>2</span>Euros</li>
-          <li class="list-group-item">Yogures <span>3</span>Euros</li>
-          <li class="list-group-item">Manzanas <span>5</span>Euros</li>
-          <li class="list-group-item">Chocolate <span>6</span>Euros</li>
-          <li class="list-group-item">Lechuga <span>1</span>Euros</li>
+          
+        
         </ul>
         <div class="form-group mt-3">
             <input type="button" class="btn btn-primary" id="botonmostrar" value="añadir a la lista">

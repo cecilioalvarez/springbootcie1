@@ -18,54 +18,16 @@
     ></script>
 
     <script type="text/javascript">
-      // la pagina esta cargada
-      $(function () {
-
-        $("#formulario").hide();
-
-        $("li").click(function () {
-          if (!$(this).hasClass("bg-info")) {
-            $(this).addClass("bg-info");
-          } else {
-            $(this).removeClass("bg-info");
-          }
-        });
-
-        $("#botonmostrar").click(function() {
-
-            $("#lista").fadeOut("slow",function(){
-                $("#formulario").fadeIn("slow");
-
-            } );
-           
-        })
-
-        $("#boton").click(function() {
-
-        
-            let comida= $("#comida").val();
-            let precio= $("#precio").val();
-            var textoli="<li class='list-group-item'>"+comida+" <span>" +precio+"</span>Euros</li>";
-            $("ul").append(textoli);
-            $("#lista").show();
-            $("#formulario").hide();
-        })
-
-
-
-
-      });
+  
+      
     </script>
   </head>
   <body>
     <div class="container">
       <div class="row" id="lista">
         <ul class="list-group">
-          <li class="list-group-item">Galletas <span>2</span>Euros</li>
-          <li class="list-group-item">Yogures <span>3</span>Euros</li>
-          <li class="list-group-item">Manzanas <span>5</span>Euros</li>
-          <li class="list-group-item">Chocolate <span>6</span>Euros</li>
-          <li class="list-group-item">Lechuga <span>1</span>Euros</li>
+          
+        
         </ul>
         <div class="form-group mt-3">
             <input type="button" class="btn btn-primary" id="botonmostrar" value="añadir a la lista">
