@@ -20,5 +20,14 @@ public class LibroRepositoryJDBC implements LibroRepository{
        
         return plantilla.query("select * from libros2", new LibroRowMapper());
     }
+    @Override
+    public void insertar(Libro libro) {
+        plantilla.update("insert into libros2 values (?,?,?,?)"
+        ,libro.getIsbn(),libro.getTitulo(),libro.getAutor(),libro.getPaginas());
+    }
+    @Override
+    public void borrar(Libro libro) {
+       plantilla.update("delete from libros2 where isbn=?",libro.getIsbn());
 
+}
 }
