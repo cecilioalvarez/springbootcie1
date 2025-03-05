@@ -31,4 +31,9 @@ public class LibroRepositoryJDBC implements LibroRepository{
        libro.getPaginas());
     }
 
+    @Override
+    public void borrar(Libro libro) {
+        plantilla.update("delete from Libros where isbn=?", libro.getIsbn());
+    }
+
 }

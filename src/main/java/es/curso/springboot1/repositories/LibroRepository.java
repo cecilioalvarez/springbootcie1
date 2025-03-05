@@ -7,4 +7,5 @@ public interface LibroRepository {
     
     List<Libro> buscarTodos();
     void insertar(Libro libro);
+    void borrar(Libro libro);
 }
