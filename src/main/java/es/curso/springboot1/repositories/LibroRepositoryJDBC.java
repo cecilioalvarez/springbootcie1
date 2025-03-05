@@ -21,4 +21,14 @@ public class LibroRepositoryJDBC implements LibroRepository{
         return plantilla.query("select * from libros", new LibroRowMapper());
     }
 
+    @Override
+    public void insertar(Libro libro) {
+        // TODO Auto-generated method stub
+       plantilla.update("insert into Libros values (?,?,?,?)", 
+       libro.getIsbn(),
+       libro.getTitulo(),
+       libro.getAutor(),
+       libro.getPaginas());
+    }
+
 }

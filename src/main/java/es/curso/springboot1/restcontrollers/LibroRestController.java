@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.curso.springboot1.negocio.Libro;
 import es.curso.springboot1.repositories.LibroRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 @RestController
 @RequestMapping("/webapi/libros")
 public class LibroRestController {
@@ -22,6 +25,12 @@ public class LibroRestController {
     public List<Libro> buscarTodos() {
 
         return libroRepository.buscarTodos();
+
+    }
+    @PostMapping
+    public void insertar(@RequestBody Libro libro) {
+
+        libroRepository.insertar(libro);
 
     }
 }
