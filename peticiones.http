@@ -1,0 +1,28 @@
+GET http://localhost:8080/webapi/libros
+
+########
+
+POST http://localhost:8080/webapi/libros
+content-type: application/json
+
+{
+    "isbn": "1a",
+    "titulo": "libro",
+    "autor": "otro",
+    "paginas": 120
+}
+
+########
+DELETE http://localhost:8080/webapi/libros/35t23t534
+
+########
+
+GET http://localhost:8080/webapi/libros?titulo=La divina comedia
+
+#######
+
+GET http://localhost:8080/webapi/libros?autor=Stephen King
+
+######
+
+GET http://localhost:8080/webapi/libros?paginas=1074
