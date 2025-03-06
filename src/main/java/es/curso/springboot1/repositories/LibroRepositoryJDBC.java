@@ -28,6 +28,11 @@ public void insertar (Libro libro) {
     @Override
     public void borrar(Libro libro)  {
         plantilla.update("delete from Libros where isbn=?", libro.getIsbn());
-    }  
+    }
+    @Override
+    public List<Libro> buscarTodosPorTitulo(String titulo) {
+        return plantilla.query("select* from libros where titulo=?", 
+        new LibroRowMapper(),titulo);
 
+    }
 }
