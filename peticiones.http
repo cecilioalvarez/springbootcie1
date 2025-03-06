@@ -10,3 +10,7 @@ content-type: application/json
     "autor":"pedro",
     "paginas":100
 }
+
+###
+
+DELETE http://localhost:8080/webapi/libros/1a
