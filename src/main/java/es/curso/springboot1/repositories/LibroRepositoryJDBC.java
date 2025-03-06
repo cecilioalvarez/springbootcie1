@@ -19,7 +19,15 @@ public class LibroRepositoryJDBC implements LibroRepository{
     public List<Libro> buscarTodos() {
         return plantilla.query("select * from libros", new LibroRowMapper());
     }
-
+@Override
+public void insertar (Libro libro) {
+    plantilla.update("insert into libros values (?,?,?,?)",
+    libro.getIsbn(), libro.getAutor(),libro.getTitulo(), libro.getPaginas());
+    }   
    
+    @Override
+    public void borrar(Libro libro)  {
+        plantilla.update("delete from Libros where isbn=?", libro.getIsbn());
+    }  
 
 }
