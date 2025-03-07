@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.curso.springboot1.negocio.Libro;
@@ -32,6 +33,7 @@ public class LibroRestController {
 
     }
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public void insertar(@RequestBody Libro libro) {
 
         libroRepository.insertar(libro);
@@ -41,5 +43,10 @@ public class LibroRestController {
     public void borrar(@PathVariable String isbn) {
 
         libroRepository.borrar(new Libro(isbn));
+    }
+    @GetMapping(params = {"titulo"})
+    public List<Libro> buscarTodosPorTitulo(@RequestParam String titulo) {
+
+        return libroRepository.buscarTodosPorTitulo(titulo);
     }
 }

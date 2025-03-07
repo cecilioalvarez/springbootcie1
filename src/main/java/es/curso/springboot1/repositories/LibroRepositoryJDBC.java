@@ -36,4 +36,12 @@ public class LibroRepositoryJDBC implements LibroRepository{
         plantilla.update("delete from Libros where isbn=?", libro.getIsbn());
     }
 
+    @Override
+    public List<Libro> buscarTodosPorTitulo(String titulo) {
+        // TODO Auto-generated method stub
+        return plantilla.query("select * from libros where titulo like ?",
+         new LibroRowMapper()
+         ,"%"+titulo+"%");
+    }
+
 }
