@@ -34,6 +34,7 @@ public class LibroRestController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public void insertar(@RequestBody Libro libro){
 
         libroRepository.insertar(libro);
@@ -68,6 +69,15 @@ public class LibroRestController {
     public List <Libro> buscarTodosPorPaginas(@RequestParam Number paginas){
 
         return libroRepository.buscarTodosPorPaginas(paginas);
+
+    }
+
+
+    @GetMapping( "/{isbn}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Libro buscarUno(@PathVariable String isbn){
+
+        return libroRepository.buscarUno(isbn);
 
     }
 }

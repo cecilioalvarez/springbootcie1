@@ -47,7 +47,15 @@ public class LibroRepositoryJDBC implements LibroRepository {
     @Override
     public List<Libro> buscarTodosPorPaginas(Number paginas) {
         
-        return plantilla.query("select * from  libros where paginas=?", new LibroRowMapper(),paginas);
+        return plantilla.query("select * from libros where paginas=?", new LibroRowMapper(),paginas);
+    }
+
+    @Override
+    public Libro buscarUno(String isbn) {
+        
+        return plantilla.queryForObject("select * from libros where isbn=?", new LibroRowMapper(),isbn);
+
+
     }
 
 }

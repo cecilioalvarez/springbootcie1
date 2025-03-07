@@ -21,7 +21,7 @@ GET http://localhost:8080/webapi/libros?titulo=La divina comedia
 
 #######
 
-GET http://localhost:8080/webapi/libros?autor=Stephen King
+GET http://localhost:8080/webapi/libros/123456789
 
 ######
 
