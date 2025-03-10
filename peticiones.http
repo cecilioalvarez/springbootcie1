@@ -22,3 +22,22 @@ content-type:application/json
 }
 #####
 DELETE  http://localhost:8080/webapi/libros/1a
+
+#####
+GET GET http://localhost:8080/webapi/ejemplar
+
+#####
+
+GET http://localhost:8080/webapi/ejemplar/isbn/A/numero/6
+#######
+
+POST http://localhost:8080/webapi/ejemplar
+content-type: application/json
+
+{
+    "isbn":"A",
+    "numero":"6",
+    "disponible":"true"
+}
+#######
+DELETE  http://localhost:8080/webapi/ejemplar/isbn/4567/numero/7
