@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 import es.curso.springboot1.negocio.Libro;
 
 @Repository
@@ -18,6 +19,32 @@ public class LibroRepositoryJDBC implements LibroRepository{
     @Override
     public List<Libro> buscarTodos() {
          return plantilla.query ("select * from libros",new LibroRowMapper());
+    }
+
+    @Override
+    public void insertar(Libro libro) {
+       plantilla.update("insert into libros values (?,?,?,?)",
+       libro.getIsbn(),libro.getTitulo(),libro.getAutor(),libro.getPaginas());
+    }
+
+    @Override
+    public void borrar(Libro libro) {
+        plantilla.update("delete from libros where isbn=?",libro.getIsbn());
+    }
+
+    @Override
+    public List<Libro> buscarPorTitulo(String titulo) {
+        return plantilla.query ("select * from libros where titulo like ?", new LibroRowMapper(),"%"+titulo+"%");
+    }
+
+    @Override
+    public List<Libro> buscarPorAutor(String autor) {
+        return plantilla.query ("select * from libros where autor like ?", new LibroRowMapper(),"%"+autor+"%");
+    }
+
+    @Override
+    public Libro buscarUno(String isbn){
+        return plantilla.queryForObject("select * from libros where isbn=?",new LibroRowMapper(),isbn);
     }
 
 }
