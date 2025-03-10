@@ -5,6 +5,11 @@ http://localhost:8080/webapi/libros
 GET http://localhost:8080/webapi/libros?titulo=resplandor
 ######
 
+GET http://localhost:8080/webapi/ejemplares
+#######
+
+GET http://localhost:8080/webapi/ejemplares/isbn/12A/numero/1
+#######
 GET http://localhost:8080/webapi/libros?autor=Brandon Sanderson
 ######
 
@@ -12,15 +17,14 @@ GET http://localhost:8080/webapi/libros/3
 
 ######
 
-POST http://localhost:8080/webapi/libros
+POST http://localhost:8080/webapi/ejemplares
 content-type: application/json
 
 {
-    "isbn": "6",
-    "titulo": "Caraval",
-    "autor": "Stephanie Garber",
-    "paginas": 450
+    "isbn": "7B",
+    "numero": "8",
+    "disponible":"false" 
 }
 
 ######
-DELETE http://localhost:8080/webapi/libros/5
+DELETE http://localhost:8080/webapi/ejemplares/isbn/7B/numero/8
