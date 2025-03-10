@@ -6,7 +6,11 @@ import es.curso.springboot1.negocio.Libro;
 
 public interface LibroRepository {
 
+    Libro buscarUno (String isbn);
     List<Libro> buscarTodos();
+    List<Libro> buscarTodosPorTitulo(String titulo);
+    List<Libro> buscarTodosPorAutor(String autor);
+    
     void insertar(Libro libro);
     void borrar(Libro libro);
 }
