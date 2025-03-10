@@ -44,4 +44,11 @@ public class LibroRepositoryJDBC implements LibroRepository{
          ,"%"+titulo+"%");
     }
 
+    @Override
+    public Libro buscarUno(String isbn) {
+        // TODO Auto-generated method stub
+        return plantilla.queryForObject("select * from libros where isbn=?",
+        new LibroRowMapper(),isbn);
+    }
+
 }
