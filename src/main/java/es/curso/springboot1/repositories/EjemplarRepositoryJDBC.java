@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import es.curso.springboot1.negocio.Ejemplar;
 
+
 @Repository
 @Qualifier("jdbc")
 public class EjemplarRepositoryJDBC implements EjemplarRepository {
@@ -29,10 +30,6 @@ public class EjemplarRepositoryJDBC implements EjemplarRepository {
         plantilla.update("insert into Ejemplares values (?,?,?)", ejemplar.getIsbn(), ejemplar.getNumero(), ejemplar.isDisponible());
     }
 
-    @Override
-    public void borrar(Ejemplar libro) {
-        
-    }
 
     @Override
     public List<Ejemplar> disponibilidad(boolean disponible) {
@@ -48,8 +45,16 @@ public class EjemplarRepositoryJDBC implements EjemplarRepository {
 
     @Override
     public List<Ejemplar> buscarTodos() {
-        return plantilla.query("select * from ejemplares", new EjemplarRowMapper());
+        return plantilla.query("select * from Ejemplares", new EjemplarRowMapper());
     }
 
+
+
+
+    @Override
+    public void eliminar(String isbn, int numero) {
+        String sql = "DELETE FROM Ejemplares WHERE isbn = ? AND numero = ?";
+        plantilla.update(sql, isbn, numero);
+    }
     
 }

@@ -1,4 +1,4 @@
-GET http://localhost:8080/webapi/ejemplares/isbn/1a/numero/1
+GET http://localhost:8080/webapi/ejemplares/isbn/2a/numero/2
 
 ########
 
@@ -6,8 +6,8 @@ POST http://localhost:8080/webapi/ejemplares
 content-type: application/json
 
 {
-    "isbn": "1a",
-    "numero": "1",
+    "isbn": "2a",
+    "numero": "2",
     "disponible":true
 }
 
