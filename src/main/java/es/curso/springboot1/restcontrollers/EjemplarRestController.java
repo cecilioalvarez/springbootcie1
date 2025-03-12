@@ -57,6 +57,17 @@ public class EjemplarRestController {
         ejemplarRepository.eliminar(isbn, numero);
     }
 
+    @GetMapping("/isbn/{isbn}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Ejemplar buscarPorIsbn(@PathVariable String isbn) {
+        return ejemplarRepository.buscarIsbn(isbn);
+    }
+
+    @GetMapping("/numero/{numero}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Ejemplar buscarPorNumero(@PathVariable int numero) {
+        return ejemplarRepository.buscarNumero(numero);
+    }
 
  }
 

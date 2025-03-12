@@ -13,6 +13,8 @@ public interface EjemplarRepository {
     List<Ejemplar> disponibilidad(boolean disponible);
     void insertar(Ejemplar ejemplar);
     void eliminar (String isbn, int numero);
+    Ejemplar buscarNumero(int numero);
+    Ejemplar buscarIsbn(String isbn);
     
 
 }
