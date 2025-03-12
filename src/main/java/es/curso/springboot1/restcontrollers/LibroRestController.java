@@ -27,14 +27,15 @@ public class LibroRestController {
     public LibroRestController() {
    
     } 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Libro> buscarTodos() {
 
         return libroRepository.buscarTodos();
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public void insertar(@RequestBody Libro libro) {
         libroRepository.insertar(libro);
     }

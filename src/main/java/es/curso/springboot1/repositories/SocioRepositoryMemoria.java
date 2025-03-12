@@ -16,10 +16,10 @@ public class SocioRepositoryMemoria implements SocioRepository {
     List<Socio> socios = new ArrayList<Socio>();
 
     public SocioRepositoryMemoria() {
-        socios.add(new Socio("pepe", "perez", 10));
-        socios.add(new Socio("pepe2", "perez", 10));
-        socios.add(new Socio("pepe3", "perez", 10));
-        socios.add(new Socio("pepe4", "perez", 10));
+        socios.add(new Socio("Mario", "Mora", 25));
+        socios.add(new Socio("Juan", "Amaral", 29));
+        socios.add(new Socio("Iker", "Ruiz", 30));
+        socios.add(new Socio("Ana", "Castillo", 18));
 
     }
 
