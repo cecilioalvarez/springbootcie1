@@ -45,5 +45,10 @@ public class LibroRepositoryJDBC implements LibroRepository{
         return plantilla.queryForObject("select * from libros where isbn?=",new LibroRowMapper(),isbn);
         
     }
+    @Override
+    public List<Libro> buscarPorRango(int inicio,int fin) {
+        return plantilla.query("select * from libros where paginas between ? and ?",new LibroRowMapper(),inicio,fin);
+        
+    }   
     
 }

@@ -10,7 +10,7 @@ public interface LibroRepository {
     List<Libro> buscarTodos();
     List<Libro> buscarTodosPorTitulo(String titulo);
     List<Libro> buscarTodosPorAutor(String autor);
-    
+    List<Libro> buscarPorRango (int inicio, int fin);
     void insertar(Libro libro);
     void borrar(Libro libro);
 }

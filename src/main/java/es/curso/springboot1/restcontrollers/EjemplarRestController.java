@@ -42,6 +42,7 @@ public class EjemplarRestController {
     }
     
     @DeleteMapping("/isbn/{isbn}/numero/{numero}")
+    @CrossOrigin(origins="http://localhost:4200")
     public void borrar(@PathVariable String isbn,@PathVariable int numero) {
 
         ejemplarRepository.borrar(isbn,numero);
