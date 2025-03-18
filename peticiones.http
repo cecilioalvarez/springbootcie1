@@ -2,6 +2,14 @@ GET http://localhost:8080/webapi/libros
 
 ######
 
+GET http://localhost:8080/webapi/libros/1
+
+######
+
+GET http://localhost:8080/webapi/libros/isbn/1/numero/2
+
+
+
 GET http://localhost:8080/webapi/libros?titulo=libro2
 
 ######

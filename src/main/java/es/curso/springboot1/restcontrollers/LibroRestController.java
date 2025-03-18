@@ -40,13 +40,26 @@ public class LibroRestController {
 
     }
     @DeleteMapping("/{isbn}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void borrar(@PathVariable String isbn) {
 
         libroRepository.borrar(new Libro(isbn));
     }
+    
     @GetMapping(params = {"titulo"})
     public List<Libro> buscarTodosPorTitulo(@RequestParam String titulo) {
 
         return libroRepository.buscarTodosPorTitulo(titulo);
     }
+    // /webapi/libros
+    //@GetMapping("/isbn/{isbn}/numero/{numero}")
+    @GetMapping("/{isbn}")
+    @CrossOrigin(origins = "http://localhost:4200") 
+    public Libro buscarUno(@PathVariable String isbn) {
+
+        return libroRepository.buscarUno(isbn);
+    }
+    // /webapi/libros?titulo=mititulo   @requestparam
+    ///webapi/libros/123 //path variable
+
 }
